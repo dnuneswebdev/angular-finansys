@@ -12,7 +12,7 @@ import { Category } from './category.model'
 export class CategoryService {
   private apiPath: string = 'api/categories'
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<Category[]> {
     return this.http.get(this.apiPath).pipe(
