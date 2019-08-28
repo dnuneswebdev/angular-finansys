@@ -54,8 +54,8 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   //PRIVATE METHODS
 
   protected setCurrentAction() {
-    const newUrl = this.route.snapshot.url[0].path == 'new'
-    if (newUrl) {
+
+    if (this.route.snapshot.url[0].path == 'new') {
       this.currentAction = 'new'
     } else {
       this.currentAction = 'edit'
