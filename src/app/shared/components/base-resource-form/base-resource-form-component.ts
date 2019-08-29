@@ -1,5 +1,5 @@
 import { OnInit, AfterContentChecked, Injector } from '@angular/core'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { switchMap } from 'rxjs/operators'
 import toastr from 'toastr'
@@ -54,7 +54,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   //PRIVATE METHODS
 
   protected setCurrentAction() {
-
     if (this.route.snapshot.url[0].path == 'new') {
       this.currentAction = 'new'
     } else {
@@ -64,11 +63,8 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
 
   protected loadResource() {
     if (this.currentAction == 'edit') {
-      this.route.paramMap
-        .pipe(
-          switchMap(params => this.resourceService.getById(+params.get('id')))
-        )
-        .subscribe(
+      this.route.paramMap.pipe(
+        switchMap(params => this.resourceService.getById(+params.get('id')))).subscribe(
           resource => {
             this.resource = resource
             this.resourceForm.patchValue(resource)

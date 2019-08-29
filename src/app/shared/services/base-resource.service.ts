@@ -5,16 +5,16 @@ import { Observable, throwError } from 'rxjs'
 import { map, catchError } from 'rxjs/operators'
 import { Injector } from '@angular/core';
 
-export abstract class BaseResourceService<T extends BaseResourceModel> {
+export abstract class BaseResourceService<T extends BaseResourceModel> { //recebe como parametro o tipo
 
-  protected http: HttpClient
+  protected http: HttpClient //precisa dessa instancia do http
 
   constructor(
     protected apiPath: string,
     protected injector: Injector,
     protected jsonDataToResourceFn: (jsonData: any) => T) {
 
-    this.http = injector.get(HttpClient)
+    this.http = injector.get(HttpClient)//avisa pro angular que todas as classes que vão herdar da base, ja passem a dependenpcia HTTP
 
   }
 
