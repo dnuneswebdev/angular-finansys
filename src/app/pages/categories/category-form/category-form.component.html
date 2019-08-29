@@ -1,11 +1,5 @@
 <!-- BREADCRUMB -->
-<nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
-    <li class="breadcrumb-item"><a routerLink="/categories">Categorias</a></li>
-    <li class="breadcrumb-item">{{pageTitle}}</li>
-  </ol>
-</nav>
+<app-bread-crumb [items]="[{text: 'Categorias', link: '/categories'}, {text: pageTitle}]"></app-bread-crumb>
 <!-- TITLE -->
 <div class="row my-5">
   <div class="col-md">
