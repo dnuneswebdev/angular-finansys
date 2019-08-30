@@ -11,6 +11,7 @@ export class PageHeaderComponent implements OnInit {
   @Input('btn-class') btnClass: string
   @Input('btn-text') btnText: string
   @Input('btn-link') btnLink: string
+  @Input('show-btn') showBtn: boolean = true
 
   constructor() { }
 
