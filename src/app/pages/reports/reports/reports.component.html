@@ -31,6 +31,7 @@
       <div class="form-group col-md-5">
         <label for="year">Ano</label>
         <select #year name="year" id="year" class="form-control">
+          <option value="">Selecione o ano</option>
           <option value="2016">2016</option>
           <option value="2017">2017</option>
           <option value="2018">2018</option>
@@ -51,19 +52,19 @@
   <div class="card text-center text-white bg-success">
     <div class="card-header">TOTAL DE RECEITAS</div>
     <div class="card-body">
-      <h3 class="card-title">1500</h3>
+      <h3 class="card-title">{{totalRevenue}}</h3>
     </div>
   </div>
   <div class="card text-center text-white bg-danger">
     <div class="card-header">TOTAL DE DESPESAS</div>
     <div class="card-body">
-      <h3 class="card-title">500</h3>
+      <h3 class="card-title">{{totalExpense}}</h3>
     </div>
   </div>
   <div class="card text-center text-white bg-info">
     <div class="card-header">SALDO</div>
     <div class="card-body">
-      <h3 class="card-title">1000</h3>
+      <h3 class="card-title">{{balance}}</h3>
     </div>
   </div>
 </div>
@@ -72,9 +73,9 @@
 
 <div class="row my-4">
   <div class="col-md-6 text-center">
-    GRÁFICO DE RECEITAS
+    <p-chart type="bar" [data]="revenueChartData" [options]="chartOptions"></p-chart>
   </div>
   <div class="col-md-6 text-center">
-    GRÁFICO DE DESPESAS
+    <p-chart type="bar" [data]="expenseChartData" [options]="chartOptions"></p-chart>
   </div>
 </div>
